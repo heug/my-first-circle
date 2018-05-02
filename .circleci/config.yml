@@ -8,3 +8,5 @@ jobs:
       - run: npm i
       - save_cache:
           key: npm-cache-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - node_modules
