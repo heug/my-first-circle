@@ -1,0 +1,23 @@
+{
+  "name": "my-first-circle",
+  "version": "1.0.0",
+  "description": "Getting started with CircleCI",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heug/my-first-circle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heug/my-first-circle/issues"
+  },
+  "homepage": "https://github.com/heug/my-first-circle#readme"
+}
