@@ -105,7 +105,7 @@ workflows:
 # npm init; npm i react
 version: 2
 jobs:
-  one:
+  build:
     docker:
       - image: circleci/node:4.8.2
     steps:
@@ -123,14 +123,15 @@ jobs:
 
 version: 2
 jobs:
-  one:
+  build:
     docker:
-      - image: circleci/node:4.8.2
+      - image: circleci/python:3.6.2-stretch-browsers
         environment:
           TEST_DATABASE_URL: postgresql://root@localhost/circle_test
       - image: circleci/postgres:9.6.5-alpine-ram
     steps:
       - checkout
+      - run: sudo apt-get update
       - run: sudo apt install postgresql-client-9.6
       - run: whoami
       - run: |
