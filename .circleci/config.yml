@@ -2,17 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:4.8.2
+      - image: circleci/python:3.6.2-stretch-browsers
         environment:
           TEST_DATABASE_URL: postgresql://root@localhost/circle_test
       - image: circleci/postgres:9.6.5-alpine-ram
     steps:
       - checkout
-      - run: |
-          sudo add-apt-repository "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -sc)-pgdg main"
-          wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-          sudo apt-get update
-          sudo apt-get install postgresql-client-9.6
+      - run: sudo apt-get install postgresql-client-9.6
       - run: whoami
       - run: |
           psql \
