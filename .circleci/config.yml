@@ -2,24 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-        environment:
-          TEST_DATABASE_URL: postgresql://root@localhost/circle_test
-      - image: circleci/postgres:9.6.5-alpine-ram
+      - image: circleci/node:4.8.2
     steps:
       - checkout
-      - run: sudo apt-get update
-      - run: sudo apt-get install postgresql-client-9.6
-      - run: whoami
-      - run: |
-          psql \
-          -d $TEST_DATABASE_URL \
-          -c "CREATE TABLE test (name char(25));"
-      - run: |
-          psql \
-          -d $TEST_DATABASE_URL \
-          -c "INSERT INTO test VALUES ('John'), ('Courtney'), ('Cheryl');"
-      - run: |
-          psql \
-          -d $TEST_DATABASE_URL \
-          -c "SELECT * FROM test"
+      - run: echo "A first hello"
